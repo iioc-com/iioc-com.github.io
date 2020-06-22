@@ -1,8 +1,13 @@
-import { Carousel } from 'react-bootstrap';
+---
+# This is the banner/carousel component
+---
+
+import { Link } from 'gatsby'
+import { Carousel } from 'react-bootstrap'
 
 <Carousel>
 
-<Carousel.Item>
+<Carousel.Item><Link to="/page-2/">
 
 ![Slide 1](../images/slide1.png)
 
@@ -11,7 +16,7 @@ import { Carousel } from 'react-bootstrap';
 ### Slide 1 heading
 
 </Carousel.Caption>
-</Carousel.Item>
+</Link></Carousel.Item>
 
 <Carousel.Item>
 
