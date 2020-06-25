@@ -20,6 +20,13 @@ module.exports = {
         path: `${__dirname}/src/components`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -38,6 +45,10 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          components: null,
+          default: require.resolve("./src/components/layout.js"),
+        },
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
