@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { Container } from "react-bootstrap"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -30,18 +31,16 @@ const Layout = (props) => {
 
   return (
     <>
+      <SEO title={pageTitle} />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div>
+      <Container>
         <main>
-          <SEO title={pageTitle} />
           {props.children}
         </main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © {new Date().getFullYear()} {data.site.siteMetadata.title}
         </footer>
-      </div>
+      </Container>
     </>
   )
 }

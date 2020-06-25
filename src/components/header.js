@@ -1,34 +1,36 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { Button, Form, FormControl, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+  <Navbar bg="light" expand="lg">
+  <Link className="navbar-brand" to="/">{siteTitle}</Link>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Link className="nav-link" to="/contact-us">About us</Link>
+      <Link className="nav-link" to="/contact-us">Contact us</Link>
+      <Link className="nav-link" to="/donate">Donate now</Link>
+      <NavDropdown title="Our services" id="basic-nav-dropdown">
+        <NavDropdown title="Ask the Shaykh" id="basic-nav-dropdown">
+          <Link className="dropdown-item" to="/submit-a-question/">Submit a question</Link>
+          <Link className="dropdown-item" to="/submit-a-question/">Submit a question</Link>
+        </NavDropdown>
+        <NavDropdown title="Marriage Services" id="basic-nav-dropdown">
+          <Link className="dropdown-item" to="/submit-a-question/">Matrimony</Link>
+          <Link className="dropdown-item" to="/submit-a-question/">Professional Counseling</Link>
+          <Link className="dropdown-item" to="/submit-a-question/">Premarital & Marital Counseling</Link>
+          <Link className="dropdown-item" to="/marriage-officiation-request/">Marriage Officiation Request</Link>
+        </NavDropdown>
+      </NavDropdown>
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+      <Button variant="outline-success">Search</Button>
+    </Form>
+  </Navbar.Collapse>
+</Navbar>
 )
 
 Header.propTypes = {
