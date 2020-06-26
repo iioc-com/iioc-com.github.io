@@ -1,3 +1,31 @@
+# How to add a contact form
+
+1. Create an Google Form and embed it in a markdown file (see contact-us.md for example)
+2. Open the form's script editor (3 dots in the upper right corner > Script editor) and paste something like the function below. Name it `{formName}Mailer` for consistency. Also keep in mind that the order of the fields should match the order in the form.
+3. In the form's script editor go to Edit > Current project's triggers and create a trigger to run the function on form submit
+
+```
+function contactUsMailer(e) {
+  const recipient = `admin@iioc.com`;
+  const subject = `IIOC Feedback Form`;
+  const email = e.response.getRespondentEmail();
+  const [name, phone, message] = e.response.getItemResponses().map(ir => ir.getResponse());
+  try {
+    MailApp.sendEmail({
+      name: name,
+      replyTo: email,
+      to: recipient,
+      subject: subject,
+      body: `Feedback From: ${name} <${email}>\n\nMessage:\n${message}\n\nContact Number:\n${phone}`,
+    });
+  } catch (ex) {
+    Logger.log(`Error sending email from ${email}`);
+    Logger.log(ex.message);
+    MailApp.sendEmail(recipient, `Error: ${subject}`, ex.message);
+  }
+}
+```
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
