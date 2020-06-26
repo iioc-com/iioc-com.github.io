@@ -9,19 +9,18 @@ const Header = ({ siteTitle }) => (
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-      <Link className="nav-link" to="/contact-us">About us</Link>
+      <Link className="nav-link" to="/about-us">About us</Link>
       <Link className="nav-link" to="/contact-us">Contact us</Link>
       <Link className="nav-link" to="/donate">Donate now</Link>
       <NavDropdown title="Our services" id="basic-nav-dropdown">
         <NavDropdown title="Ask the Shaykh" id="basic-nav-dropdown">
-          <Link className="dropdown-item" to="/submit-a-question/">Submit a question</Link>
-          <Link className="dropdown-item" to="/submit-a-question/">Submit a question</Link>
+          <Link className="dropdown-item" to="/submit-a-question">Submit a question</Link>
+          <Link className="dropdown-item" to="/appointment-request">Appointment request</Link>
         </NavDropdown>
         <NavDropdown title="Marriage Services" id="basic-nav-dropdown">
-          <Link className="dropdown-item" to="/submit-a-question/">Matrimony</Link>
-          <Link className="dropdown-item" to="/submit-a-question/">Professional Counseling</Link>
-          <Link className="dropdown-item" to="/submit-a-question/">Premarital & Marital Counseling</Link>
-          <Link className="dropdown-item" to="/marriage-officiation-request/">Marriage Officiation Request</Link>
+          <Link className="dropdown-item" to="/professional-counseling">Professional Counseling</Link>
+          <Link className="dropdown-item" to="/premarital-marital-counseling">Premarital & Marital Counseling</Link>
+          <Link className="dropdown-item" to="/marriage-officiation-request">Marriage Officiation Request</Link>
         </NavDropdown>
       </NavDropdown>
     </Nav>
