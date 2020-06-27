@@ -15,7 +15,7 @@ function contactUsMailer(e) {
       name: name,
       replyTo: email,
       to: recipient,
-      subject: subject,
+      subject: `${subject} from ${name} <${email}>`,
       body: `Feedback From: ${name} <${email}>\n\nMessage:\n${message}\n\nContact Number:\n${phone}`,
     });
   } catch (ex) {
